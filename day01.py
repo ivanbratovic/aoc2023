@@ -1,12 +1,11 @@
-test = False
+TEST = False
 
 
 def read_input():
-    global test
     filename = "inputs/day01-input.txt"
-    if test:
+    if TEST:
         filename = "inputs/day01-test.txt"
-    with open(filename, "r") as file:
+    with open(filename, "r", encoding="utf-8") as file:
         return file.readlines()
 
 
