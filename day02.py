@@ -1,5 +1,4 @@
-from functools import reduce
-import operator
+from math import prod
 
 TEST = False
 
@@ -42,10 +41,6 @@ def get_possible_games(games, max_counts):
     return possible_games
 
 
-def game_power(cube_counts):
-    return reduce(operator.mul, cube_counts, 1)
-
-
 def get_game_powers(games):
     powers = []
     for game in games:
@@ -53,7 +48,7 @@ def get_game_powers(games):
         for cube_set in game:
             for colour, number in cube_set.items():
                 max_counts[colour] = max([max_counts[colour], number])
-        powers.append(game_power(max_counts.values()))
+        powers.append(prod(max_counts.values()))
     return powers
 
 
